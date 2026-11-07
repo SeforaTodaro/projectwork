@@ -1,5 +1,5 @@
 # Project Work
-* Titolo: Da definire
+* Titolo: Dalla Normativa NIS2 alla progettazione di una base di dati relazionale per la governance dei profili ACN 
 * Tema n.2: Privacy e sicurezza aziendale
 * PW 19: Progettare e realizzare una base dati relazionale per catalogare asset, servizi, dipendenze e responsabilità utili alla compilazione dei profili richiesti dall'ACN nell'ambito della NIS2
 * Studentessa: Sefora Todaro
