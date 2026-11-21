@@ -1,0 +1,2 @@
+"idstorico","tabellaorigine","idrecord","operazione","versionestorica","nomeassetstorico","criticitaprecedente","snapshotcompletojsonb","datamodifica"
+1,"asset",6,"UPDATE",1,"Gateway Pagamenti SEPA","Medio","{""nome"": ""Gateway Pagamenti SEPA"", ""idasset"": 6, ""versione"": 1, ""tipologia"": ""Server Applicativo"", ""idsoggettonis2"": 2, ""statooperativo"": ""In produzione"", ""criticitaoperativa"": ""Medio"", ""spaziodiindirizzamento"": ""10.50.20.0/24"", ""dataultimoaggiornamento"": ""2026-11-20T09:31:11.438488""}","2026-11-20 10:18:51.421068"

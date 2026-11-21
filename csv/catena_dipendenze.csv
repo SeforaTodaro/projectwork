@@ -1,0 +1,8 @@
+"soggettonis2","tipologianis2","serviziocritico","rilevanzaservizio","assetcoinvolto","criticitaasset","fornitoreinappalto","tipologiaaccesso","rischiofornitore"
+"Banca di Credito Cooperativo Beta S.p.A.","Importante","Core Banking e Pagamenti Interbancari SEPA","Alto","Gateway Pagamenti SEPA","Medio","Gamma CyberDefense S.r.l.","Remoto","Critico"
+"Banca di Credito Cooperativo Beta S.p.A.","Importante","Core Banking e Pagamenti Interbancari SEPA","Alto","Gateway Pagamenti SEPA","Medio","Epsilon Cloud & Backup S.r.l.","Nessun accesso diretto","Medio"
+"Banca di Credito Cooperativo Beta S.p.A.","Importante","Core Banking e Pagamenti Interbancari SEPA","Alto","Mainframe Core Banking 01","Critico",NULL,NULL,NULL
+"Gruppo Ospedaliero Alpha S.p.A.","Essenziale","Diagnostica per Immagini (PACS/RIS)","Alto","Firewall Core Ospedale","Critico","Gamma CyberDefense S.r.l.","Remoto","Critico"
+"Gruppo Ospedaliero Alpha S.p.A.","Essenziale","Diagnostica per Immagini (PACS/RIS)","Alto","Storage PACS Radiologia","Alto","Delta Sistemi & Hardware S.r.l.","Presidio fisico","Alto"
+"Gruppo Ospedaliero Alpha S.p.A.","Essenziale","Pronto Soccorso e Triage Digitale","Critico","Cluster Cartella Clinica 01","Critico",NULL,NULL,NULL
+"Gruppo Ospedaliero Alpha S.p.A.","Essenziale","Pronto Soccorso e Triage Digitale","Critico","Firewall Core Ospedale","Critico","Gamma CyberDefense S.r.l.","Remoto","Critico"
