@@ -10,7 +10,7 @@ Questo documento descrive la struttura logica e fisica delle 10 tabelle che comp
 ## 1. Tabelle Principali
 
 ### 1.1 SoggettoNIS2
-Censisce le organizzazioni pubbliche e private rientranti nel perimetro applicativo della normativa NIS2.
+Censisce le organizzazioni pubbliche e private rientranti nel perimetro applicativo della Normativa NIS2.
 
 | Campo | Tipo SQL | Vincoli | Descrizione |
 | :--- | :--- | :--- | :--- |
@@ -19,11 +19,11 @@ Censisce le organizzazioni pubbliche e private rientranti nel perimetro applicat
 | CodiceIdentificativo | VARCHAR(50) | UNIQUE NOT NULL | Partita IVA (per soggetti privati) o Codice IPA / Codice Fiscale (per enti pubblici) |
 | CodiceATECO | VARCHAR(10) | — | Codice di classificazione dell'attività economica (ATECO / NACE) |
 | DomicilioDigitale | VARCHAR(100) | — | Indirizzo PEC ufficiale utilizzato per le comunicazioni regolamentari con ACN |
-| SettoreCriticita | VARCHAR(50) | NOT NULL, CHECK | Classificazione settoriale NIS2 ('Settore Altamente Critico', 'Settore Critico', 'Altra Tipologia di Soggetto') |
-| TipologiaNIS2 | VARCHAR(20) | NOT NULL, CHECK | Categoria normativa assegnata all'ente ('Essenziale', 'Importante') |
+| SettoreCriticita | VARCHAR(50) | NOT NULL, CHECK | Classificazione settoriale NIS2 ("Settore Altamente Critico", "Settore Critico", "Altra Tipologia di Soggetto") |
+| TipologiaNIS2 | VARCHAR(20) | NOT NULL, CHECK | Categoria normativa assegnata all'ente ("Essenziale", "Importante") |
 | UbicazioneSedeStatoUE | VARCHAR(50) | NOT NULL | Stato membro dell'Unione Europea in cui è stabilita la sede principale |
 | UbicazioneSedeCitta | VARCHAR(50) | NOT NULL | Comune in cui è ubicata la sede principale |
-| UbicazioneSedeVia | VARCHAR(100) | NOT NULL | Denominazione della via o piazza della sede principale |
+| UbicazioneSedeVia | VARCHAR(100) | NOT NULL | Denominazione della via o piazza (o altro) della sede principale |
 | UbicazioneSedeNumeroCivico | VARCHAR(10) | — | Numero civico della sede principale |
 | UbicazioneSedeCAP | VARCHAR(10) | NOT NULL | Codice di Avviamento Postale della sede principale |
 | Versione | INT | NOT NULL DEFAULT 1, CHECK (Versione >= 1) | Contatore progressivo della versione corrente del record |
@@ -32,7 +32,7 @@ Censisce le organizzazioni pubbliche e private rientranti nel perimetro applicat
 ---
 
 ### 1.2 Responsabile
-Registra le figure interne designate per la governance della sicurezza, i punti di contatto ACN e i referenti CSIRT.
+Registra le figure interne all'organizzazione.
 
 | Campo | Tipo SQL | Vincoli | Descrizione |
 | :--- | :--- | :--- | :--- |
@@ -60,7 +60,7 @@ Descrive i servizi essenziali o critici erogati dal soggetto NIS2 sul territorio
 | Nome | VARCHAR(100) | NOT NULL | Denominazione identificativa del servizio erogato |
 | Descrizione | TEXT | — | Descrizione estesa delle funzioni e dell'operatività del servizio |
 | MacroArea | VARCHAR(100) | NOT NULL | Comparto o ambito operativo disciplinato dagli allegati NIS2 |
-| CategoriaDiRilevanza | VARCHAR(20) | NOT NULL, CHECK | Priorità di continuità e ripristino del servizio ('Critico', 'Alto', 'Medio', 'Basso') |
+| CategoriaDiRilevanza | VARCHAR(20) | NOT NULL, CHECK | Priorità di continuità e ripristino del servizio ("Critico", "Alto", "Medio", "Basso") |
 | Versione | INT | NOT NULL DEFAULT 1, CHECK (Versione >= 1) | Contatore progressivo della versione corrente del record |
 | DataUltimoAggiornamento | TIMESTAMP | NOT NULL DEFAULT CURRENT_TIMESTAMP, CHECK (<= CURRENT_TIMESTAMP) | Data e ora di creazione o dell'ultima modifica apportata al record |
 | IDSoggettoNIS2 | INT | NOT NULL, FOREIGN KEY -> SoggettoNIS2(IDSoggettoNIS2) (ON DELETE RESTRICT) | Chiave esterna verso il soggetto regolamentato che eroga il servizio |
@@ -76,8 +76,8 @@ Censisce le risorse tecnologiche, applicative, infrastrutturali e di rete gestit
 | Nome | VARCHAR(100) | NOT NULL | Nome identificativo del sistema, applicativo o apparato |
 | Tipologia | VARCHAR(50) | NOT NULL | Categoria tecnica della risorsa (es. Server Virtuale, Apparato di Rete, Database) |
 | StatoOperativo | VARCHAR(100) | NOT NULL | Stato corrente nel ciclo di vita (es. In produzione, In manutenzione, Dismesso) |
-| SpazioDiIndirizzamento | VARCHAR(100) | — | Indirizzo IP, subnet logica o indicazione Non in rete |
-| CriticitaOperativa | VARCHAR(20) | NOT NULL, CHECK | Livello di impatto operativo in caso di indisponibilità ('Critico', 'Alto', 'Medio', 'Basso') |
+| SpazioDiIndirizzamento | VARCHAR(100) | — | Indirizzo IP, subnet logica o indicazione "Non in rete" |
+| CriticitaOperativa | VARCHAR(20) | NOT NULL, CHECK | Livello di impatto operativo in caso di indisponibilità ("Critico", "Alto", "Medio", "Basso") |
 | Versione | INT | NOT NULL DEFAULT 1, CHECK (Versione >= 1) | Contatore progressivo della versione corrente del record |
 | DataUltimoAggiornamento | TIMESTAMP | NOT NULL DEFAULT CURRENT_TIMESTAMP, CHECK (<= CURRENT_TIMESTAMP) | Data e ora di creazione o dell'ultima modifica apportata al record |
 | IDSoggettoNIS2 | INT | NOT NULL, FOREIGN KEY -> SoggettoNIS2(IDSoggettoNIS2) (ON DELETE RESTRICT) | Chiave esterna verso il soggetto regolamentato titolare dell'asset |
@@ -85,7 +85,7 @@ Censisce le risorse tecnologiche, applicative, infrastrutturali e di rete gestit
 ---
 
 ### 1.5 Fornitore
-Censisce i fornitori terzi e i prestatori di servizi ICT appartenenti alla catena di approvvigionamento (*Supply Chain*).
+Censisce i fornitori terzi e i prestatori di servizi ICT appartenenti alla catena di approvvigionamento (Supply Chain).
 
 | Campo | Tipo SQL | Vincoli | Descrizione |
 | :--- | :--- | :--- | :--- |
@@ -96,7 +96,7 @@ Censisce i fornitori terzi e i prestatori di servizi ICT appartenenti alla caten
 | SedeLegale | VARCHAR(200) | NOT NULL | Indirizzo completo della sede legale del fornitore |
 | TipologiaFornitura | VARCHAR(100) | NOT NULL | Oggetto della fornitura (es. Servizi SOC/MDR, Manutenzione Hardware, Cloud Backup) |
 | TipologiaAccesso | VARCHAR(100) | NOT NULL | Modalità di accesso ai sistemi del cliente (es. Remoto, Presidio fisico, Nessun accesso diretto) |
-| LivelloDiCriticita | VARCHAR(20) | NOT NULL, CHECK | Indice di rischiosità associato al fornitore ('Critico', 'Alto', 'Medio', 'Basso') |
+| LivelloDiCriticita | VARCHAR(20) | NOT NULL, CHECK | Indice di rischiosità associato al fornitore ("Critico", "Alto", "Medio", "Basso") |
 | Versione | INT | NOT NULL DEFAULT 1, CHECK (Versione >= 1) | Contatore progressivo della versione corrente del record |
 | DataUltimoAggiornamento | TIMESTAMP | NOT NULL DEFAULT CURRENT_TIMESTAMP, CHECK (<= CURRENT_TIMESTAMP) | Data e ora di creazione o dell'ultima modifica apportata al record |
 
